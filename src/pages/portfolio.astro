@@ -10,7 +10,7 @@ const t = useTranslations(lang);
 
 <Layout
   title={t('portfolio.title')}
-  description={lang === 'fr' ? 'Découvrez nos projets de construction résidentielle et commerciale. Plus de 500 projets réalisés au Québec.' : 'Discover our residential and commercial construction projects. Over 500 completed projects in Quebec.'}
+  description={lang === 'fr' ? 'Découvrez nos projets de plâtrage résidentiel et commercial. Plus de 500 projets de plâtrage réalisés au Québec.' : 'Discover our residential and commercial plastering projects. Over 500 completed plastering projects in Quebec.'}
 >
   <section class="section bg-construction">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -34,7 +34,7 @@ const t = useTranslations(lang);
                   <div class="text-sm opacity-75 mt-2">{project.year}</div>
                 </div>
               </div>
-              
+
               <!-- Overlay -->
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div class="absolute bottom-6 left-6 right-6 text-white">
@@ -56,7 +56,7 @@ const t = useTranslations(lang);
                   </p>
                 </div>
               </div>
-              
+
               <!-- Category Badge -->
               <div class="absolute top-4 left-4">
                 <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-xs font-medium text-primary-700 rounded-full capitalize">
@@ -64,16 +64,16 @@ const t = useTranslations(lang);
                 </span>
               </div>
             </div>
-            
+
             <div class="p-8">
               <h3 class="text-2xl font-display font-bold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors">
                 {project.title[lang]}
               </h3>
-              
+
               <p class="text-gray-600 mb-6 leading-relaxed">
                 {project.description[lang]}
               </p>
-              
+
               <div class="flex flex-wrap gap-2 mb-6">
                 {project.features[lang].map((feature) => (
                   <span class="px-3 py-1 bg-primary-50 text-primary-700 rounded-full text-sm">
@@ -81,13 +81,13 @@ const t = useTranslations(lang);
                   </span>
                 ))}
               </div>
-              
+
               <div class="flex items-center justify-between">
                 <div class="text-sm text-gray-500">
                   <div class="font-medium text-gray-700">{project.year}</div>
                   <div>{project.size} • {project.duration}</div>
                 </div>
-                
+
                 <a
                   href={getLocalizedPath(`/portfolio/${project.id}`, lang)}
                   class="text-primary-600 hover:text-primary-700 font-medium text-sm flex items-center group-hover:underline transition-colors"
@@ -143,13 +143,13 @@ const t = useTranslations(lang);
       <div class="mt-16 text-center animate-on-scroll">
         <div class="bg-gradient-to-r from-primary-600 to-secondary-600 rounded-2xl p-12 text-white">
           <h2 class="text-3xl font-display font-bold mb-4">
-            {lang === 'fr' 
+            {lang === 'fr'
               ? 'Votre projet sera le prochain?'
               : 'Will your project be next?'
             }
           </h2>
           <p class="text-xl mb-8 text-white/90">
-            {lang === 'fr' 
+            {lang === 'fr'
               ? 'Rejoignez les centaines de familles qui nous ont fait confiance.'
               : 'Join the hundreds of families who have trusted us.'
             }

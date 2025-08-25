@@ -13,8 +13,8 @@ const t = useTranslations(lang);
         {lang === 'fr' ? 'Notre processus' : 'Our Process'}
       </h2>
       <p class="section-subtitle">
-        {lang === 'fr' 
-          ? 'Un processus éprouvé pour garantir la réussite de votre projet' 
+        {lang === 'fr'
+          ? 'Un processus éprouvé pour garantir la réussite de votre projet'
           : 'A proven process to ensure your project\'s success'
         }
       </p>
@@ -30,7 +30,7 @@ const t = useTranslations(lang);
               <div class="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-construction mb-4 relative z-10">
                 {step.step}
               </div>
-              
+
               <!-- Connector Line (hidden on last item) -->
               {index < siteConfig.process.length - 1 && (
                 <div class="hidden md:block absolute top-8 left-full w-full h-0.5 bg-gradient-to-r from-primary-300 to-primary-200 -translate-y-0.5 z-0"></div>
@@ -42,11 +42,11 @@ const t = useTranslations(lang);
               <div class="text-4xl mb-4">
                 {step.icon}
               </div>
-              
+
               <h3 class="text-lg font-display font-semibold text-gray-900 mb-3">
                 {step.title[lang]}
               </h3>
-              
+
               <p class="text-gray-600 text-sm leading-relaxed">
                 {step.description[lang]}
               </p>
@@ -63,7 +63,7 @@ const t = useTranslations(lang);
           <h3 class="text-2xl font-display font-bold text-gray-900 mb-6">
             {lang === 'fr' ? 'Pourquoi choisir notre processus?' : 'Why choose our process?'}
           </h3>
-          
+
           <div class="space-y-4">
             <div class="flex items-start space-x-3">
               <div class="w-6 h-6 bg-primary-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -76,14 +76,14 @@ const t = useTranslations(lang);
                   {lang === 'fr' ? 'Transparence totale' : 'Complete transparency'}
                 </h4>
                 <p class="text-gray-600 text-sm">
-                  {lang === 'fr' 
+                  {lang === 'fr'
                     ? 'Suivi en temps réel et communication constante tout au long du projet.'
                     : 'Real-time tracking and constant communication throughout the project.'
                   }
                 </p>
               </div>
             </div>
-            
+
             <div class="flex items-start space-x-3">
               <div class="w-6 h-6 bg-primary-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                 <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -95,14 +95,14 @@ const t = useTranslations(lang);
                   {lang === 'fr' ? 'Respect des délais' : 'On-time delivery'}
                 </h4>
                 <p class="text-gray-600 text-sm">
-                  {lang === 'fr' 
+                  {lang === 'fr'
                     ? 'Planification rigoureuse pour respecter les échéances convenues.'
                     : 'Rigorous planning to meet agreed deadlines.'
                   }
                 </p>
               </div>
             </div>
-            
+
             <div class="flex items-start space-x-3">
               <div class="w-6 h-6 bg-primary-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
                 <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -114,7 +114,7 @@ const t = useTranslations(lang);
                   {lang === 'fr' ? 'Qualité garantie' : 'Quality guaranteed'}
                 </h4>
                 <p class="text-gray-600 text-sm">
-                  {lang === 'fr' 
+                  {lang === 'fr'
                     ? 'Contrôle qualité à chaque étape avec garantie sur tous nos travaux.'
                     : 'Quality control at every step with warranty on all our work.'
                   }
@@ -128,19 +128,19 @@ const t = useTranslations(lang);
           <!-- Process illustration placeholder -->
           <div class="aspect-square bg-gradient-to-br from-primary-200 to-secondary-300 rounded-2xl flex items-center justify-center relative overflow-hidden">
             <div class="text-center text-white">
-              <div class="text-6xl mb-4">📋</div>
+              <div class="text-6xl mb-4">🏺</div>
               <p class="text-lg font-medium">
-                {lang === 'fr' ? 'Processus détaillé' : 'Detailed Process'}
+                {lang === 'fr' ? 'Processus de plâtrage' : 'Plastering Process'}
               </p>
             </div>
-            
+
             <!-- Floating elements -->
             <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-2 rounded-lg shadow-md">
               <div class="text-sm font-medium text-gray-700">
                 {siteConfig.company.experience} {lang === 'fr' ? 'ans' : 'years'}
               </div>
             </div>
-            
+
             <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-2 rounded-lg shadow-md">
               <div class="text-sm font-medium text-primary-600">500+ {lang === 'fr' ? 'projets' : 'projects'}</div>
             </div>

@@ -10,7 +10,7 @@ const t = useTranslations(lang);
 <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
   <!-- Background -->
   <div class="absolute inset-0 bg-gradient-to-br from-primary-50 via-primary-100 to-secondary-100"></div>
-  
+
   <!-- Background Pattern -->
   <div class="absolute inset-0 opacity-5">
     <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"60\" height=\"60\" viewBox=\"0 0 60 60\"><rect width=\"60\" height=\"60\" fill=\"%23ffffff\"/><path d=\"M54 60V28h-4V0H0v32h-4v28h58z\" fill=\"%23000000\" opacity=\"0.03\"/></svg>')"></div>
@@ -28,11 +28,11 @@ const t = useTranslations(lang);
             {lang === 'fr' ? 'Fièrement québécois depuis' : 'Proudly Quebec since'} {siteConfig.company.founded}
           </span>
         </div>
-        
+
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-gray-900 mb-6 leading-tight">
           {t('hero.title')}
         </h1>
-        
+
         <p class="text-xl text-gray-600 mb-8 max-w-2xl lg:max-w-none">
           {t('hero.subtitle')}
         </p>
@@ -60,7 +60,7 @@ const t = useTranslations(lang);
             </svg>
             {t('hero.cta')}
           </a>
-          
+
           <a
             href={getLocalizedPath('/portfolio', lang)}
             class="btn-outline text-lg px-8 py-4 hover:shadow-md transform hover:-translate-y-1 transition-all duration-300"
@@ -98,21 +98,21 @@ const t = useTranslations(lang);
       <!-- Hero Image/Illustration -->
       <div class="relative animate-on-scroll">
         <div class="relative z-10">
-          <!-- Placeholder for hero image - replace with actual construction site photo -->
+          <!-- Placeholder for hero image - replace with actual plaster work photo -->
           <div class="aspect-[4/5] bg-gradient-to-br from-primary-300 to-secondary-400 rounded-2xl shadow-2xl overflow-hidden relative">
             <!-- Image placeholder - you would replace this with actual hero image -->
             <div class="absolute inset-0 flex items-center justify-center">
               <div class="text-center text-white">
-                <div class="text-6xl mb-4">🏗️</div>
+                <div class="text-6xl mb-4">🎨</div>
                 <p class="text-lg font-medium opacity-90">
-                  {lang === 'fr' ? 'Photo de chantier' : 'Construction Site Photo'}
+                  {lang === 'fr' ? 'Projet de plâtrage' : 'Plastering Project Photo'}
                 </p>
                 <p class="text-sm opacity-75">
                   {lang === 'fr' ? 'À remplacer par une vraie photo' : 'Replace with actual photo'}
                 </p>
               </div>
             </div>
-            
+
             <!-- Floating Elements -->
             <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-2 rounded-full shadow-md">
               <div class="flex items-center text-sm font-medium text-gray-700">
@@ -120,13 +120,13 @@ const t = useTranslations(lang);
                 {lang === 'fr' ? 'En cours' : 'In Progress'}
               </div>
             </div>
-            
+
             <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-4 py-3 rounded-xl shadow-md">
               <div class="text-xs text-gray-500 mb-1">
                 {lang === 'fr' ? 'Projet récent' : 'Recent Project'}
               </div>
               <div class="font-semibold text-gray-900">
-                {lang === 'fr' ? 'Maison familiale' : 'Family Home'}
+                {lang === 'fr' ? 'Plâtre vénitien' : 'Venetian Plaster'}
               </div>
               <div class="text-sm text-primary-600">Sainte-Foy, QC</div>
             </div>

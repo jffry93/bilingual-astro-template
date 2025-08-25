@@ -1,16 +1,15 @@
-// Site configuration - Update this file to customize your construction company website
-const contactDomain = 'contact.jeffzalischi.com'
+// Site configuration - Update this file to customize your plaster company website
 
 export const siteConfig = {
   // Basic site information
   name: {
-    fr: "Construction Familiale Québec",
-    en: "Quebec Family Construction"
+    fr: "Plâtrage Familial Tremblay",
+    en: "Tremblay Family Plastering"
   },
 
   tagline: {
-    fr: "Construction de qualité depuis 1998",
-    en: "Quality construction since 1998"
+    fr: "Maîtres plâtriers depuis 1998",
+    en: "Master plasterers since 1998"
   },
 
   url: "https://bilingual-astro-site.pages.dev",
@@ -18,8 +17,8 @@ export const siteConfig = {
   // Company information
   company: {
     name: {
-      fr: "Construction Familiale Québec",
-      en: "Quebec Family Construction"
+      fr: "Plâtrage Familial Tremblay",
+      en: "Tremblay Family Plastering"
     },
 
     founded: "1998",
@@ -32,17 +31,17 @@ export const siteConfig = {
 
     contact: {
       phone: "(418) 555-0123",
-      email: "info@" + contactDomain,
+      email: "info@platragetremblay.com",
       address: {
-        fr: "123 Rue de la Construction, Québec, QC G1A 1A1",
-        en: "123 Construction Street, Quebec City, QC G1A 1A1"
+        fr: "123 Rue des Artisans, Québec, QC G1A 1A1",
+        en: "123 Artisan Street, Quebec City, QC G1A 1A1"
       }
     },
 
     social: {
-      facebook: "https://facebook.com/constructionqc",
-      instagram: "https://instagram.com/constructionqc",
-      linkedin: "https://linkedin.com/company/constructionqc"
+      facebook: "https://facebook.com/platragetremblay",
+      instagram: "https://instagram.com/platragetremblay",
+      linkedin: "https://linkedin.com/company/platragetremblay"
     },
 
     // Business hours
@@ -61,13 +60,13 @@ export const siteConfig = {
   // Hero section
   hero: {
     title: {
-      fr: "Construction de qualité, tradition familiale",
-      en: "Quality Construction, Family Tradition"
+      fr: "Plâtrage artisanal, tradition familiale",
+      en: "Artisan Plastering, Family Tradition"
     },
 
     subtitle: {
-      fr: "Plus de 25 ans d'expérience au service des familles québécoises. Nous sommes fiers de bâtir votre avenir avec passion et expertise.",
-      en: "Over 25 years serving Quebec families with pride. We're passionate about building your future with expertise and care."
+      fr: "Plus de 25 ans d'expertise en plâtrage au service des familles québécoises. Nous créons des finis exceptionnels avec passion et savoir-faire ancestral.",
+      en: "Over 25 years of plastering expertise serving Quebec families. We create exceptional finishes with passion and traditional craftsmanship."
     },
 
     cta: {
@@ -83,16 +82,16 @@ export const siteConfig = {
 
     features: [
       {
-        fr: "Entreprise familiale québécoise",
-        en: "Quebec family business"
+        fr: "Maîtres plâtriers québécois",
+        en: "Quebec master plasterers"
       },
       {
-        fr: "Garantie sur tous les travaux",
-        en: "Guarantee on all work"
+        fr: "Techniques traditionnelles & modernes",
+        en: "Traditional & modern techniques"
       },
       {
-        fr: "Équipe d'experts certifiés",
-        en: "Certified expert team"
+        fr: "Finis durables garantis",
+        en: "Guaranteed durable finishes"
       }
     ]
   },
@@ -100,67 +99,67 @@ export const siteConfig = {
   // Services
   services: [
     {
-      id: "residential",
-      icon: "🏠",
+      id: "interior-plaster",
+      icon: "🏺",
       title: {
-        fr: "Construction résidentielle",
-        en: "Residential Construction"
+        fr: "Finition de plâtre intérieur",
+        en: "Interior Plaster Finishing"
       },
       description: {
-        fr: "Maisons neuves, extensions, rénovations majeures avec des matériaux de qualité supérieure.",
-        en: "New homes, extensions, major renovations with premium quality materials."
+        fr: "Finis de plâtre lisses et texturés pour murs et plafonds, réparations et restaurations intérieures.",
+        en: "Smooth and textured plaster finishes for walls and ceilings, interior repairs and restorations."
       },
       features: {
-        fr: ["Maisons clés en main", "Extensions personnalisées", "Rénovations complètes"],
-        en: ["Turnkey homes", "Custom extensions", "Complete renovations"]
+        fr: ["Murs lisses parfaits", "Textures personnalisées", "Réparations de plâtre"],
+        en: ["Perfect smooth walls", "Custom textures", "Plaster repairs"]
       }
     },
     {
-      id: "commercial",
-      icon: "🏢",
+      id: "exterior-stucco",
+      icon: "🏛️",
       title: {
-        fr: "Construction commerciale",
-        en: "Commercial Construction"
+        fr: "Stucco extérieur et SEIF",
+        en: "Exterior Stucco & EIFS"
       },
       description: {
-        fr: "Bâtiments commerciaux, bureaux, entrepôts adaptés à vos besoins d'affaires.",
-        en: "Commercial buildings, offices, warehouses tailored to your business needs."
+        fr: "Systèmes d'isolation extérieure, stucco traditionnel et moderne pour protection et esthétique.",
+        en: "Exterior insulation systems, traditional and modern stucco for protection and aesthetics."
       },
       features: {
-        fr: ["Bureaux modernes", "Espaces commerciaux", "Entrepôts industriels"],
-        en: ["Modern offices", "Retail spaces", "Industrial warehouses"]
+        fr: ["Isolation thermique", "Finis décoratifs", "Protection météorologique"],
+        en: ["Thermal insulation", "Decorative finishes", "Weather protection"]
       }
     },
     {
-      id: "renovation",
-      icon: "🔨",
+      id: "heritage-restoration",
+      icon: "🎨",
       title: {
-        fr: "Rénovation et restauration",
-        en: "Renovation & Restoration"
+        fr: "Plâtrage patrimonial",
+        en: "Heritage Plastering"
       },
       description: {
-        fr: "Transformez vos espaces existants avec notre expertise en rénovation.",
-        en: "Transform your existing spaces with our renovation expertise."
+        fr: "Restauration de plâtre traditionnel, techniques ancestrales pour bâtiments historiques.",
+        en: "Traditional plaster restoration, ancestral techniques for historical buildings."
       },
       features: {
-        fr: ["Cuisines et salles de bain", "Sous-sols", "Toitures"],
-        en: ["Kitchens & bathrooms", "Basements", "Roofing"]
+        fr: ["Plâtre à la chaux", "Techniques d'époque", "Conformité patrimoniale"],
+        en: ["Lime plaster", "Period techniques", "Heritage compliance"]
       }
     },
     {
-      id: "design",
-      icon: "📐",
+      id: "venetian-decorative",
+      icon: "✨",
       title: {
-        fr: "Design et planification",
-        en: "Design & Planning"
+        fr: "Plâtre vénitien et décoratif",
+        en: "Venetian & Decorative Plaster"
       },
       description: {
-        fr: "Services complets de conception architecturale et de planification de projet.",
-        en: "Complete architectural design and project planning services."
+        fr: "Finis de luxe, plâtre vénitien, textures artistiques pour espaces haut de gamme.",
+        en: "Luxury finishes, Venetian plaster, artistic textures for high-end spaces."
       },
       features: {
-        fr: ["Plans architecturaux", "Permis de construction", "Gestion de projet"],
-        en: ["Architectural plans", "Building permits", "Project management"]
+        fr: ["Finis de luxe", "Effets artistiques", "Designs personnalisés"],
+        en: ["Luxury finishes", "Artistic effects", "Custom designs"]
       }
     }
   ],
@@ -168,74 +167,74 @@ export const siteConfig = {
   // Portfolio projects
   portfolio: [
     {
-      id: "modern-family-home",
+      id: "heritage-plaster-restoration",
       title: {
-        fr: "Maison familiale moderne - Sainte-Foy",
-        en: "Modern Family Home - Sainte-Foy"
+        fr: "Restauration de plâtre patrimonial - Vieux-Québec",
+        en: "Heritage Plaster Restoration - Old Quebec"
       },
       description: {
-        fr: "Construction d'une magnifique maison familiale de 2,500 pi² avec des finitions haut de gamme.",
-        en: "Construction of a beautiful 2,500 sq ft family home with premium finishes."
+        fr: "Restauration complète des murs de plâtre à la chaux d'une maison historique du 18e siècle.",
+        en: "Complete restoration of lime plaster walls in an 18th century historic home."
       },
-      category: "residential",
+      category: "heritage-restoration",
       year: "2023",
-      size: "2,500 pi² / sq ft",
-      duration: "8 mois / months",
+      size: "1,800 pi² / sq ft",
+      duration: "6 mois / months",
       images: [
-        "/images/portfolio/modern-home-1.jpg",
-        "/images/portfolio/modern-home-2.jpg",
-        "/images/portfolio/modern-home-3.jpg"
+        "/images/portfolio/heritage-plaster-1.jpg",
+        "/images/portfolio/heritage-plaster-2.jpg",
+        "/images/portfolio/heritage-plaster-3.jpg"
       ],
       features: {
-        fr: ["4 chambres", "3 salles de bain", "Cuisine ouverte", "Garage double"],
-        en: ["4 bedrooms", "3 bathrooms", "Open kitchen", "Double garage"]
+        fr: ["Plâtre à la chaux traditionnel", "Techniques d'époque", "Conformité patrimoniale", "Finitions authentiques"],
+        en: ["Traditional lime plaster", "Period techniques", "Heritage compliance", "Authentic finishes"]
       }
     },
     {
-      id: "office-renovation",
+      id: "luxury-venetian-condo",
       title: {
-        fr: "Rénovation de bureaux - Québec",
-        en: "Office Renovation - Quebec City"
+        fr: "Plâtre vénitien de luxe - Sainte-Foy",
+        en: "Luxury Venetian Plaster - Sainte-Foy"
       },
       description: {
-        fr: "Transformation complète d'un espace de bureaux de 3,000 pi² en espace moderne et fonctionnel.",
-        en: "Complete transformation of a 3,000 sq ft office space into a modern and functional workspace."
+        fr: "Application de plâtre vénitien haut de gamme dans un penthouse moderne avec finis artistiques.",
+        en: "High-end Venetian plaster application in a modern penthouse with artistic finishes."
       },
-      category: "commercial",
+      category: "venetian-decorative",
       year: "2023",
-      size: "3,000 pi² / sq ft",
+      size: "2,200 pi² / sq ft",
+      duration: "3 mois / months",
+      images: [
+        "/images/portfolio/venetian-1.jpg",
+        "/images/portfolio/venetian-2.jpg"
+      ],
+      features: {
+        fr: ["Plâtre vénitien authentique", "Effets métalliques", "Finis multicolores", "Design personnalisé"],
+        en: ["Authentic Venetian plaster", "Metallic effects", "Multi-color finishes", "Custom design"]
+      }
+    },
+    {
+      id: "commercial-stucco-project",
+      title: {
+        fr: "Stucco commercial SEIF - Lévis",
+        en: "Commercial EIFS Stucco - Lévis"
+      },
+      description: {
+        fr: "Installation complète d'un système SEIF sur un bâtiment commercial de 3 étages.",
+        en: "Complete EIFS system installation on a 3-story commercial building."
+      },
+      category: "exterior-stucco",
+      year: "2022",
+      size: "12,000 pi² / sq ft",
       duration: "4 mois / months",
       images: [
-        "/images/portfolio/office-1.jpg",
-        "/images/portfolio/office-2.jpg"
+        "/images/portfolio/commercial-stucco-1.jpg",
+        "/images/portfolio/commercial-stucco-2.jpg",
+        "/images/portfolio/commercial-stucco-3.jpg"
       ],
       features: {
-        fr: ["Espaces ouverts", "Salles de réunion", "Éclairage moderne", "Finitions premium"],
-        en: ["Open spaces", "Meeting rooms", "Modern lighting", "Premium finishes"]
-      }
-    },
-    {
-      id: "heritage-restoration",
-      title: {
-        fr: "Restauration patrimoine - Vieux-Québec",
-        en: "Heritage Restoration - Old Quebec"
-      },
-      description: {
-        fr: "Restauration minutieuse d'une maison centenaire tout en préservant son caractère historique.",
-        en: "Meticulous restoration of a century-old home while preserving its historical character."
-      },
-      category: "renovation",
-      year: "2022",
-      size: "1,800 pi² / sq ft",
-      duration: "12 mois / months",
-      images: [
-        "/images/portfolio/heritage-1.jpg",
-        "/images/portfolio/heritage-2.jpg",
-        "/images/portfolio/heritage-3.jpg"
-      ],
-      features: {
-        fr: ["Préservation historique", "Matériaux d'époque", "Mise aux normes", "Efficacité énergétique"],
-        en: ["Historical preservation", "Period materials", "Code compliance", "Energy efficiency"]
+        fr: ["Système SEIF complet", "Isolation thermique", "Fini texturé", "Résistance météorologique"],
+        en: ["Complete EIFS system", "Thermal insulation", "Textured finish", "Weather resistance"]
       }
     }
   ],
@@ -251,38 +250,38 @@ export const siteConfig = {
       },
       rating: 5,
       text: {
-        fr: "Excellente équipe! Ils ont construit la maison de nos rêves avec un professionnalisme exemplaire. Nous recommandons sans hésitation.",
-        en: "Excellent team! They built our dream home with exemplary professionalism. We recommend without hesitation."
+        fr: "Le plâtre vénitien dans notre salon est absolument magnifique! L'expertise et l'artisanat de l'équipe Tremblay sont exceptionnels.",
+        en: "The Venetian plaster in our living room is absolutely beautiful! The Tremblay team's expertise and craftsmanship are exceptional."
       },
-      project: "modern-family-home"
+      project: "luxury-venetian-condo"
     },
     {
       id: 2,
-      name: "Restaurant La Belle Province",
+      name: "Propriétaires du Château Frontenac",
       location: {
-        fr: "Québec, QC",
-        en: "Quebec City, QC"
+        fr: "Vieux-Québec, QC",
+        en: "Old Quebec, QC"
       },
       rating: 5,
       text: {
-        fr: "Rénovation de notre restaurant réalisée dans les temps et le budget prévu. Qualité impeccable!",
-        en: "Restaurant renovation completed on time and on budget. Impeccable quality!"
+        fr: "Restauration de plâtre patrimonial réalisée avec un respect total de l'histoire. Savoir-faire ancestral préservé!",
+        en: "Heritage plaster restoration completed with total respect for history. Ancestral craftsmanship preserved!"
       },
-      project: "restaurant-renovation"
+      project: "heritage-plaster-restoration"
     },
     {
       id: 3,
-      name: "Famille Tremblay",
+      name: "Famille Gagnon",
       location: {
         fr: "Lévis, QC",
         en: "Lévis, QC"
       },
       rating: 5,
       text: {
-        fr: "Une entreprise familiale qui comprend nos besoins. Travail soigné et équipe respectueuse.",
-        en: "A family business that understands our needs. Careful work and respectful team."
+        fr: "Les murs de notre maison n'ont jamais été aussi beaux. Fini lisse parfait et équipe très professionnelle.",
+        en: "Our home's walls have never looked so beautiful. Perfect smooth finish and very professional team."
       },
-      project: "home-addition"
+      project: "interior-plaster-renovation"
     }
   ],
 
@@ -296,14 +295,14 @@ export const siteConfig = {
 
       content: {
         fr: [
-          "Fondée en 1998 par Pierre Tremblay, Construction Familiale Québec est née de la passion pour le bâtiment et du désir de servir la communauté québécoise.",
-          "Aujourd'hui, l'entreprise est dirigée par Pierre et ses fils Marc et David, perpétuant la tradition d'excellence et d'intégrité qui caractérise notre famille.",
-          "Nous sommes fiers d'être une entreprise 100% québécoise, employant des artisans locaux et utilisant autant que possible des matériaux de la région."
+          "Fondée en 1998 par Pierre Tremblay, Plâtrage Familial Tremblay est née de la passion pour l'art du plâtre et du désir de préserver les techniques traditionnelles québécoises.",
+          "Aujourd'hui, l'entreprise est dirigée par Pierre et ses fils Marc et David, perpétuant trois générations de maîtrise du plâtrage et de savoir-faire ancestral.",
+          "Nous sommes fiers d'être une entreprise 100% québécoise, spécialisée dans les techniques de plâtrage traditionnelles et modernes, des finis vénitiens aux restaurations patrimoniales."
         ],
         en: [
-          "Founded in 1998 by Pierre Tremblay, Quebec Family Construction was born from a passion for building and a desire to serve the Quebec community.",
-          "Today, the company is led by Pierre and his sons Marc and David, continuing the tradition of excellence and integrity that characterizes our family.",
-          "We are proud to be a 100% Quebec company, employing local craftsmen and using regional materials whenever possible."
+          "Founded in 1998 by Pierre Tremblay, Tremblay Family Plastering was born from a passion for the art of plastering and a desire to preserve traditional Quebec techniques.",
+          "Today, the company is led by Pierre and his sons Marc and David, continuing three generations of plastering mastery and ancestral craftsmanship.",
+          "We are proud to be a 100% Quebec company, specializing in traditional and modern plastering techniques, from Venetian finishes to heritage restorations."
         ]
       }
     },
@@ -359,40 +358,40 @@ export const siteConfig = {
       {
         name: "Pierre Tremblay",
         role: {
-          fr: "Fondateur et Président",
-          en: "Founder and President"
+          fr: "Maître plâtrier et Fondateur",
+          en: "Master Plasterer and Founder"
         },
         experience: "25+ années",
         image: "/images/team/pierre.jpg",
         bio: {
-          fr: "Maître-charpentier avec plus de 25 ans d'expérience dans la construction résidentielle et commerciale.",
-          en: "Master carpenter with over 25 years of experience in residential and commercial construction."
+          fr: "Maître plâtrier avec plus de 25 ans d'expertise en plâtrage traditionnel et restauration patrimoniale.",
+          en: "Master plasterer with over 25 years of expertise in traditional plastering and heritage restoration."
         }
       },
       {
         name: "Marc Tremblay",
         role: {
-          fr: "Directeur des opérations",
-          en: "Operations Director"
+          fr: "Spécialiste en stucco extérieur",
+          en: "Exterior Stucco Specialist"
         },
         experience: "15+ années",
         image: "/images/team/marc.jpg",
         bio: {
-          fr: "Spécialisé en gestion de projet et nouvelles technologies de construction.",
-          en: "Specialized in project management and new construction technologies."
+          fr: "Expert en systèmes d'isolation extérieure (SEIF) et applications de stucco commercial.",
+          en: "Expert in exterior insulation systems (EIFS) and commercial stucco applications."
         }
       },
       {
         name: "David Tremblay",
         role: {
-          fr: "Responsable design",
-          en: "Design Manager"
+          fr: "Artisan en plâtre décoratif",
+          en: "Decorative Plaster Artisan"
         },
         experience: "12+ années",
         image: "/images/team/david.jpg",
         bio: {
-          fr: "Architecte de formation, il allie créativité et fonctionnalité dans chaque projet.",
-          en: "Trained architect, he combines creativity and functionality in every project."
+          fr: "Spécialisé en plâtre vénitien et finitions décoratives haut de gamme, alliant art et technique.",
+          en: "Specialized in Venetian plaster and high-end decorative finishes, combining art with technique."
         }
       }
     ]
@@ -403,62 +402,62 @@ export const siteConfig = {
     {
       step: 1,
       title: {
-        fr: "Consultation gratuite",
-        en: "Free Consultation"
+        fr: "Évaluation des surfaces",
+        en: "Surface Assessment"
       },
       description: {
-        fr: "Rencontre pour discuter de votre vision et évaluer vos besoins.",
-        en: "Meeting to discuss your vision and assess your needs."
+        fr: "Inspection détaillée des substrats et évaluation des besoins de préparation.",
+        en: "Detailed substrate inspection and preparation needs assessment."
       },
-      icon: "💬"
+      icon: "🔍"
     },
     {
       step: 2,
       title: {
-        fr: "Conception et devis",
-        en: "Design and Quote"
+        fr: "Sélection des matériaux",
+        en: "Material Selection"
       },
       description: {
-        fr: "Élaboration des plans et estimation détaillée des coûts.",
-        en: "Plan development and detailed cost estimation."
+        fr: "Choix du type de plâtre et formulation sur mesure selon vos besoins.",
+        en: "Plaster type selection and custom formulation according to your needs."
       },
-      icon: "📐"
+      icon: "🏺"
     },
     {
       step: 3,
       title: {
-        fr: "Planification",
-        en: "Planning"
+        fr: "Préparation des surfaces",
+        en: "Surface Preparation"
       },
       description: {
-        fr: "Organisation du projet, permis et échéancier détaillé.",
-        en: "Project organization, permits, and detailed timeline."
+        fr: "Nettoyage, réparation des fissures et application de la couche de base.",
+        en: "Cleaning, crack repair, and base coat application."
       },
-      icon: "📅"
+      icon: "🧹"
     },
     {
       step: 4,
       title: {
-        fr: "Construction",
-        en: "Construction"
+        fr: "Application du plâtre",
+        en: "Plaster Application"
       },
       description: {
-        fr: "Réalisation avec suivi régulier et communication continue.",
-        en: "Execution with regular monitoring and continuous communication."
+        fr: "Application experte en multicouches avec contrôle qualité continu.",
+        en: "Expert multi-coat application with continuous quality control."
       },
-      icon: "🔨"
+      icon: "🎨"
     },
     {
       step: 5,
       title: {
-        fr: "Livraison",
-        en: "Delivery"
+        fr: "Finition et protection",
+        en: "Finishing & Protection"
       },
       description: {
-        fr: "Inspection finale, remise des clés et garanties.",
-        en: "Final inspection, key handover, and warranties."
+        fr: "Application de la couche finale, scellement et conseils d'entretien.",
+        en: "Final coat application, sealing, and maintenance guidance."
       },
-      icon: "🏆"
+      icon: "✨"
     }
   ],
 
@@ -492,24 +491,24 @@ export const siteConfig = {
   seo: {
     keywords: {
       fr: [
-        "construction Québec",
-        "entrepreneur construction",
-        "rénovation résidentielle",
-        "construction familiale",
-        "bâtiment Québec",
-        "maison neuve",
-        "rénovation Québec",
-        "construction commerciale"
+        "plâtrage Québec",
+        "plâtrier professionnel",
+        "stucco extérieur",
+        "plâtre vénitien",
+        "restauration plâtre",
+        "SEIF Québec",
+        "plâtrage traditionnel",
+        "finition plâtre"
       ],
       en: [
-        "construction Quebec",
-        "construction contractor",
-        "residential renovation",
-        "family construction",
-        "building Quebec",
-        "new home",
-        "renovation Quebec",
-        "commercial construction"
+        "plastering Quebec",
+        "professional plasterer",
+        "exterior stucco",
+        "venetian plaster",
+        "plaster restoration",
+        "EIFS Quebec",
+        "traditional plastering",
+        "plaster finishing"
       ]
     }
   },
@@ -518,22 +517,22 @@ export const siteConfig = {
   email: {
     from: {
       name: {
-        fr: "Construction Familiale Québec",
-        en: "Quebec Family Construction"
+        fr: "Plâtrage Familial Tremblay",
+        en: "Tremblay Family Plastering"
       },
-      email: "noreply@" + contactDomain
+      email: "noreply@contact.jeffzalischi.com"
     },
 
     to: {
-      business: "info@" + contactDomain,
-      owner: "pierre@" + contactDomain
+      business: "info@contact.jeffzalischi.com",
+      owner: "pierre@contact.jeffzalischi.com"
     },
 
     templates: {
       userConfirmation: {
         subject: {
-          fr: "Merci pour votre message - Construction Familiale Québec",
-          en: "Thank you for your message - Quebec Family Construction"
+          fr: "Merci pour votre message - Plâtrage Familial Tremblay",
+          en: "Thank you for your message - Tremblay Family Plastering"
         }
       },
       businessNotification: {

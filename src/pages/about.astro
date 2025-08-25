@@ -10,7 +10,7 @@ const t = useTranslations(lang);
 
 <Layout
   title={t('about.title')}
-  description={lang === 'fr' ? 'Découvrez l\'histoire de notre entreprise familiale québécoise. Plus de 25 ans d\'expérience en construction.' : 'Discover the story of our Quebec family business. Over 25 years of construction experience.'}
+  description={lang === 'fr' ? 'Découvrez l\'histoire de notre entreprise familiale québécoise. Plus de 25 ans d\'expertise en plâtrage traditionnel et moderne.' : 'Discover the story of our Quebec family business. Over 25 years of traditional and modern plastering expertise.'}
 >
   <section class="section bg-construction">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -27,13 +27,13 @@ const t = useTranslations(lang);
           <h2 class="text-3xl font-display font-bold text-gray-900 mb-6">
             {siteConfig.about.story.title[lang]}
           </h2>
-          
+
           <div class="space-y-6 text-gray-600 leading-relaxed">
             {siteConfig.about.story.content[lang].map((paragraph) => (
               <p class="text-lg">{paragraph}</p>
             ))}
           </div>
-          
+
           <div class="mt-8 flex items-center space-x-6">
             <div class="text-center">
               <div class="text-3xl font-bold text-primary-600">{siteConfig.company.founded}</div>
@@ -70,7 +70,7 @@ const t = useTranslations(lang);
                 </p>
               </div>
             </div>
-            
+
             <!-- Floating badge -->
             <div class="absolute top-6 left-6 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-md">
               <div class="flex items-center text-sm font-medium text-gray-700">
@@ -89,7 +89,7 @@ const t = useTranslations(lang);
             {lang === 'fr' ? 'Nos valeurs' : 'Our Values'}
           </h2>
           <p class="text-xl text-gray-600">
-            {lang === 'fr' 
+            {lang === 'fr'
               ? 'Ce qui nous guide dans chaque projet'
               : 'What guides us in every project'
             }
@@ -118,7 +118,7 @@ const t = useTranslations(lang);
             {lang === 'fr' ? 'Notre équipe' : 'Our Team'}
           </h2>
           <p class="text-xl text-gray-600">
-            {lang === 'fr' 
+            {lang === 'fr'
               ? 'Les visages derrière votre projet'
               : 'The faces behind your project'
             }
@@ -132,19 +132,19 @@ const t = useTranslations(lang);
               <div class="w-32 h-32 bg-gradient-to-br from-primary-400 to-secondary-500 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-4xl font-bold">
                 {member.name.split(' ').map(n => n[0]).join('')}
               </div>
-              
+
               <h3 class="text-xl font-display font-bold text-gray-900 mb-2">
                 {member.name}
               </h3>
-              
+
               <div class="text-primary-600 font-medium mb-2">
                 {member.role[lang]}
               </div>
-              
+
               <div class="text-sm text-gray-500 mb-4">
                 {member.experience} {lang === 'fr' ? 'd\'expérience' : 'experience'}
               </div>
-              
+
               <p class="text-gray-600 text-sm leading-relaxed">
                 {member.bio[lang]}
               </p>
@@ -160,7 +160,7 @@ const t = useTranslations(lang);
             {lang === 'fr' ? 'Certifications et garanties' : 'Certifications and warranties'}
           </h2>
           <p class="text-xl text-gray-600">
-            {lang === 'fr' 
+            {lang === 'fr'
               ? 'Votre tranquillité d\'esprit est notre priorité'
               : 'Your peace of mind is our priority'
             }
@@ -190,7 +190,7 @@ const t = useTranslations(lang);
               <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
             </svg>
             <span class="text-green-800 font-semibold">
-              {lang === 'fr' 
+              {lang === 'fr'
                 ? 'Garantie complète sur tous nos travaux'
                 : 'Full warranty on all our work'
               }
@@ -203,13 +203,13 @@ const t = useTranslations(lang);
       <div class="mt-24 text-center animate-on-scroll">
         <div class="bg-gradient-to-r from-primary-600 to-secondary-600 rounded-2xl p-12 text-white">
           <h2 class="text-3xl font-display font-bold mb-4">
-            {lang === 'fr' 
+            {lang === 'fr'
               ? 'Faites partie de notre histoire'
               : 'Become part of our story'
             }
           </h2>
           <p class="text-xl mb-8 text-white/90">
-            {lang === 'fr' 
+            {lang === 'fr'
               ? 'Contactez notre équipe familiale pour discuter de votre projet.'
               : 'Contact our family team to discuss your project.'
             }
