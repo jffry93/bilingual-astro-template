@@ -1,0 +1,152 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/index';
+import { siteConfig } from '../config.js';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section class="section bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="section-header animate-on-scroll">
+      <h2 class="section-title">
+        {lang === 'fr' ? 'Notre processus' : 'Our Process'}
+      </h2>
+      <p class="section-subtitle">
+        {lang === 'fr'
+          ? 'Un processus éprouvé pour garantir la réussite de votre projet'
+          : 'A proven process to ensure your project\'s success'
+        }
+      </p>
+    </div>
+
+    <div class="relative">
+      <!-- Process Steps -->
+      <div class="grid md:grid-cols-5 gap-8 relative">
+        {siteConfig.process.map((step, index) => (
+          <div class="relative animate-on-scroll" style={`animation-delay: ${index * 0.1}s`}>
+            <!-- Step Number -->
+            <div class="flex flex-col items-center mb-6">
+              <div class="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full flex items-center justify-center text-white font-bold text-xl shadow-construction mb-4 relative z-10">
+                {step.step}
+              </div>
+
+              <!-- Connector Line (hidden on last item) -->
+              {index < siteConfig.process.length - 1 && (
+                <div class="hidden md:block absolute top-8 left-full w-full h-0.5 bg-gradient-to-r from-primary-300 to-primary-200 -translate-y-0.5 z-0"></div>
+              )}
+            </div>
+
+            <!-- Step Content -->
+            <div class="text-center">
+              <div class="text-4xl mb-4">
+                {step.icon}
+              </div>
+
+              <h3 class="text-lg font-display font-semibold text-gray-900 mb-3">
+                {step.title[lang]}
+              </h3>
+
+              <p class="text-gray-600 text-sm leading-relaxed">
+                {step.description[lang]}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Process Details -->
+    <div class="mt-20 bg-gradient-to-br from-primary-50 to-secondary-50 rounded-2xl p-8 lg:p-12 animate-on-scroll">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h3 class="text-2xl font-display font-bold text-gray-900 mb-6">
+            {lang === 'fr' ? 'Pourquoi choisir notre processus?' : 'Why choose our process?'}
+          </h3>
+
+          <div class="space-y-4">
+            <div class="flex items-start space-x-3">
+              <div class="w-6 h-6 bg-primary-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-900 mb-1">
+                  {lang === 'fr' ? 'Transparence totale' : 'Complete transparency'}
+                </h4>
+                <p class="text-gray-600 text-sm">
+                  {lang === 'fr'
+                    ? 'Suivi en temps réel et communication constante tout au long du projet.'
+                    : 'Real-time tracking and constant communication throughout the project.'
+                  }
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-3">
+              <div class="w-6 h-6 bg-primary-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-900 mb-1">
+                  {lang === 'fr' ? 'Respect des délais' : 'On-time delivery'}
+                </h4>
+                <p class="text-gray-600 text-sm">
+                  {lang === 'fr'
+                    ? 'Planification rigoureuse pour respecter les échéances convenues.'
+                    : 'Rigorous planning to meet agreed deadlines.'
+                  }
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-3">
+              <div class="w-6 h-6 bg-primary-600 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-gray-900 mb-1">
+                  {lang === 'fr' ? 'Qualité garantie' : 'Quality guaranteed'}
+                </h4>
+                <p class="text-gray-600 text-sm">
+                  {lang === 'fr'
+                    ? 'Contrôle qualité à chaque étape avec garantie sur tous nos travaux.'
+                    : 'Quality control at every step with warranty on all our work.'
+                  }
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative">
+          <!-- Process illustration placeholder -->
+          <div class="aspect-square bg-gradient-to-br from-primary-200 to-secondary-300 rounded-2xl flex items-center justify-center relative overflow-hidden">
+            <div class="text-center text-white">
+              <div class="text-6xl mb-4">🏺</div>
+              <p class="text-lg font-medium">
+                {lang === 'fr' ? 'Processus de plâtrage' : 'Plastering Process'}
+              </p>
+            </div>
+
+            <!-- Floating elements -->
+            <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-2 rounded-lg shadow-md">
+              <div class="text-sm font-medium text-gray-700">
+                {siteConfig.company.experience} {lang === 'fr' ? 'ans' : 'years'}
+              </div>
+            </div>
+
+            <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-2 rounded-lg shadow-md">
+              <div class="text-sm font-medium text-primary-600">500+ {lang === 'fr' ? 'projets' : 'projects'}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

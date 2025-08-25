@@ -1,0 +1,205 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/index';
+import { getLocalizedPath } from '../i18n/utils';
+import { siteConfig } from '../config.js';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { key: 'nav.home', href: '/' },
+  { key: 'nav.services', href: '/services' },
+  { key: 'nav.portfolio', href: '/portfolio' },
+  { key: 'nav.about', href: '/about' },
+  { key: 'nav.contact', href: '/contact' },
+];
+
+function isActive(href: string): boolean {
+  if (href === '/') {
+    return currentPath === '/' || currentPath === `/${lang}` || currentPath === `/${lang}/`;
+  }
+  return currentPath.includes(href);
+}
+---
+
+<nav class="bg-white shadow-md sticky top-0 z-50 border-b border-primary-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <a href={getLocalizedPath('/', lang)} class="flex items-center space-x-3 group">
+          <div class="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-lg flex items-center justify-center shadow-construction group-hover:shadow-lg transition-all duration-300">
+            <span class="text-white font-bold text-xl">🏠</span>
+          </div>
+          <div class="hidden sm:block">
+            <div class="text-xl font-display font-bold text-gray-900 maple-accent">
+              {siteConfig.company.name[lang]}
+            </div>
+            <div class="text-xs text-primary-600 font-medium">
+              {t('footer.tagline')}
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden lg:block">
+        <div class="ml-10 flex items-center space-x-8">
+          {navItems.map((item) => (
+            <a
+              href={getLocalizedPath(item.href, lang)}
+              class={`nav-link px-3 py-2 ${isActive(item.href) ? 'active' : ''}`}
+            >
+              {t(item.key)}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Language Switcher & CTA -->
+      <div class="hidden lg:flex items-center space-x-4">
+        <!-- Language Toggle -->
+        <div class="flex items-center bg-gray-100 rounded-lg p-1">
+          <a
+            href={getLocalizedPath(Astro.url.pathname.replace('/en', '').replace('/fr', '') || '/', 'fr')}
+            class={`px-3 py-1 rounded-md text-sm font-medium transition-all duration-200 ${
+              lang === 'fr' 
+                ? 'bg-white text-primary-600 shadow-sm' 
+                : 'text-gray-600 hover:text-primary-600'
+            }`}
+          >
+            FR 🍁
+          </a>
+          <a
+            href={getLocalizedPath(Astro.url.pathname.replace('/en', '').replace('/fr', '') || '/', 'en')}
+            class={`px-3 py-1 rounded-md text-sm font-medium transition-all duration-200 ${
+              lang === 'en' 
+                ? 'bg-white text-primary-600 shadow-sm' 
+                : 'text-gray-600 hover:text-primary-600'
+            }`}
+          >
+            EN
+          </a>
+        </div>
+
+        <!-- CTA Button -->
+        <a
+          href={getLocalizedPath('/contact', lang)}
+          class="btn-primary"
+        >
+          {t('nav.quote')}
+        </a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="lg:hidden">
+        <button
+          type="button"
+          class="mobile-menu-button p-2 rounded-md text-gray-600 hover:text-primary-600 hover:bg-primary-50 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-inset"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-menu hidden lg:hidden">
+      <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-primary-100">
+        {navItems.map((item) => (
+          <a
+            href={getLocalizedPath(item.href, lang)}
+            class={`block px-3 py-2 text-base font-medium rounded-md transition-colors duration-200 ${
+              isActive(item.href)
+                ? 'text-primary-600 bg-primary-50'
+                : 'text-gray-700 hover:text-primary-600 hover:bg-primary-50'
+            }`}
+          >
+            {t(item.key)}
+          </a>
+        ))}
+        
+        <!-- Mobile Language Switcher -->
+        <div class="pt-4 pb-2 border-t border-gray-200">
+          <div class="flex items-center justify-between px-3">
+            <span class="text-sm font-medium text-gray-700">Langue / Language:</span>
+            <div class="flex items-center bg-gray-100 rounded-lg p-1">
+              <a
+                href={getLocalizedPath(Astro.url.pathname.replace('/en', '').replace('/fr', '') || '/', 'fr')}
+                class={`px-2 py-1 rounded text-xs font-medium transition-all duration-200 ${
+                  lang === 'fr' 
+                    ? 'bg-white text-primary-600 shadow-sm' 
+                    : 'text-gray-600'
+                }`}
+              >
+                FR 🍁
+              </a>
+              <a
+                href={getLocalizedPath(Astro.url.pathname.replace('/en', '').replace('/fr', '') || '/', 'en')}
+                class={`px-2 py-1 rounded text-xs font-medium transition-all duration-200 ${
+                  lang === 'en' 
+                    ? 'bg-white text-primary-600 shadow-sm' 
+                    : 'text-gray-600'
+                }`}
+              >
+                EN
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Mobile CTA -->
+        <div class="px-3 pt-2">
+          <a
+            href={getLocalizedPath('/contact', lang)}
+            class="btn-primary w-full text-center"
+          >
+            {t('nav.quote')}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Mobile menu toggle
+  document.addEventListener('DOMContentLoaded', () => {
+    const mobileMenuButton = document.querySelector('.mobile-menu-button');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    
+    if (mobileMenuButton && mobileMenu) {
+      mobileMenuButton.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        const isExpanded = !mobileMenu.classList.contains('hidden');
+        mobileMenuButton.setAttribute('aria-expanded', isExpanded.toString());
+        
+        // Update icon
+        const icon = mobileMenuButton.querySelector('svg');
+        if (icon) {
+          if (isExpanded) {
+            icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />';
+          } else {
+            icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />';
+          }
+        }
+      });
+
+      // Close mobile menu when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!mobileMenuButton.contains(e.target as Node) && !mobileMenu.contains(e.target as Node)) {
+          mobileMenu.classList.add('hidden');
+          mobileMenuButton.setAttribute('aria-expanded', 'false');
+          const icon = mobileMenuButton.querySelector('svg');
+          if (icon) {
+            icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />';
+          }
+        }
+      });
+    }
+  });
+</script>

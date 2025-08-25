@@ -1,0 +1,129 @@
+---
+import { SEO } from 'astro-seo';
+import { getLangFromUrl, useTranslations } from '../i18n/index';
+import { getAlternateLinks } from '../i18n/utils';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/globals.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  noindex?: boolean;
+  type?: string;
+}
+
+const { title, description, image, noindex, type = 'website' } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const currentPath = Astro.url.pathname.replace(`/${lang}`, '').replace(/\/$/, '') || '/';
+const alternateLinks = getAlternateLinks(currentPath);
+
+const seoTitle = title || t('meta.home.title');
+const seoDescription = description || t('meta.home.description');
+const seoImage = image || '/og-image.jpg';
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang={lang} class="scroll-smooth">
+	<head>
+		<SEO
+			title={seoTitle}
+			description={seoDescription}
+			canonical={canonicalURL.href}
+			noindex={noindex}
+			openGraph={{
+				basic: {
+					title: seoTitle,
+					type: type,
+					image: seoImage,
+					url: canonicalURL.href,
+				},
+				optional: {
+					description: seoDescription,
+					locale: t('seo.locale'),
+					siteName: t('seo.siteName'),
+				},
+				image: {
+					url: seoImage,
+					width: 1200,
+					height: 630,
+					alt: seoTitle,
+				},
+			}}
+			twitter={{
+				creator: '@jeffreyzalischi',
+				site: t('seo.siteName'),
+				card: 'summary_large_image',
+			}}
+		/>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="generator" content={Astro.generator} />
+		
+		{alternateLinks.map(({ lang: altLang, href }) => (
+			<link rel="alternate" hreflang={altLang} href={new URL(href, Astro.site).href} />
+		))}
+		
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="sitemap" href="/sitemap-index.xml" />
+		
+		<!-- Preload critical fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		
+		<!-- Schema.org structured data -->
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "LocalBusiness",
+			"name": t('seo.siteName'),
+			"description": seoDescription,
+			"url": canonicalURL.href,
+			"logo": new URL('/logo.png', Astro.site).href,
+			"image": new URL(seoImage, Astro.site).href,
+			"address": {
+				"@type": "PostalAddress",
+				"addressCountry": "CA",
+				"addressRegion": "QC"
+			},
+			"aggregateRating": {
+				"@type": "AggregateRating",
+				"ratingValue": "4.9",
+				"reviewCount": "127"
+			},
+			"priceRange": "$$$"
+		})} />
+	</head>
+	<body class="min-h-screen flex flex-col">
+		<Navigation />
+		<main class="flex-grow">
+			<slot />
+		</main>
+		<Footer />
+		
+		<!-- Scroll animation script -->
+		<script>
+			// Intersection Observer for scroll animations
+			const observerCallback = (entries: IntersectionObserverEntry[]) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('visible');
+					}
+				});
+			};
+
+			const observer = new IntersectionObserver(observerCallback, {
+				threshold: 0.1,
+				rootMargin: '0px 0px -50px 0px'
+			});
+
+			document.addEventListener('DOMContentLoaded', () => {
+				const animatedElements = document.querySelectorAll('.animate-on-scroll');
+				animatedElements.forEach(el => observer.observe(el));
+			});
+		</script>
+	</body>
+</html>

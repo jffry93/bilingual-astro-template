@@ -1,0 +1,224 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/index';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<div class="bg-white rounded-2xl shadow-lg p-8 lg:p-12">
+  <form id="contact-form" class="space-y-6">
+    <div class="grid md:grid-cols-2 gap-6">
+      <div>
+        <label for="name" class="form-label">{t('contact.name')}</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          class="form-input"
+          placeholder={lang === 'fr' ? 'Votre nom complet' : 'Your full name'}
+        />
+      </div>
+      
+      <div>
+        <label for="email" class="form-label">{t('contact.email')}</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          class="form-input"
+          placeholder={lang === 'fr' ? 'votre@email.com' : 'your@email.com'}
+        />
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <div>
+        <label for="phone" class="form-label">{t('contact.phone')}</label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          class="form-input"
+          placeholder="(418) 555-0123"
+        />
+      </div>
+      
+      <div>
+        <label for="subject" class="form-label">{t('contact.subject')}</label>
+        <select id="subject" name="subject" required class="form-input">
+          <option value="">
+            {lang === 'fr' ? 'Sélectionnez un sujet' : 'Select a subject'}
+          </option>
+          <option value="quote">
+            {lang === 'fr' ? 'Demande de devis' : 'Quote request'}
+          </option>
+          <option value="consultation">
+            {lang === 'fr' ? 'Consultation gratuite' : 'Free consultation'}
+          </option>
+          <option value="renovation">
+            {lang === 'fr' ? 'Projet de rénovation' : 'Renovation project'}
+          </option>
+          <option value="construction">
+            {lang === 'fr' ? 'Nouvelle construction' : 'New construction'}
+          </option>
+          <option value="other">
+            {lang === 'fr' ? 'Autre' : 'Other'}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div>
+      <label for="message" class="form-label">{t('contact.message')}</label>
+      <textarea
+        id="message"
+        name="message"
+        rows="6"
+        required
+        class="form-textarea"
+        placeholder={lang === 'fr' 
+          ? 'Décrivez votre projet en détail...' 
+          : 'Describe your project in detail...'
+        }
+      ></textarea>
+    </div>
+
+    <!-- Cloudflare Turnstile would go here -->
+    <div id="turnstile-container" class="flex justify-center">
+      <!-- Turnstile widget will be rendered here by JavaScript -->
+    </div>
+
+    <div class="flex items-center">
+      <input
+        type="checkbox"
+        id="privacy"
+        name="privacy"
+        required
+        class="w-4 h-4 text-primary-600 bg-gray-100 border-gray-300 rounded focus:ring-primary-500"
+      />
+      <label for="privacy" class="ml-2 text-sm text-gray-700">
+        {lang === 'fr' 
+          ? 'J\'accepte que mes données soient utilisées pour me recontacter concernant ma demande.'
+          : 'I agree that my data may be used to contact me regarding my inquiry.'
+        }
+      </label>
+    </div>
+
+    <button
+      type="submit"
+      id="submit-button"
+      class="btn-primary w-full text-lg py-4 disabled:opacity-50 disabled:cursor-not-allowed"
+    >
+      <span id="submit-text">{t('contact.submit')}</span>
+      <svg id="loading-icon" class="hidden w-5 h-5 ml-2 animate-spin" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="m4 12a8 8 0 0 1 8-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 0 1 4 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+      </svg>
+    </button>
+  </form>
+
+  <!-- Success Message -->
+  <div id="success-message" class="hidden bg-green-50 border border-green-200 rounded-lg p-6 mt-6">
+    <div class="flex items-center">
+      <svg class="w-6 h-6 text-green-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+      </svg>
+      <div>
+        <h3 class="text-green-800 font-semibold mb-1">{t('contact.success')}</h3>
+        <p class="text-green-700 text-sm">
+          {lang === 'fr' 
+            ? 'Nous vous répondrons dans les plus brefs délais.' 
+            : 'We will respond to you as soon as possible.'
+          }
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Error Message -->
+  <div id="error-message" class="hidden bg-red-50 border border-red-200 rounded-lg p-6 mt-6">
+    <div class="flex items-center">
+      <svg class="w-6 h-6 text-red-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+      </svg>
+      <div>
+        <h3 class="text-red-800 font-semibold mb-1">{t('contact.error')}</h3>
+        <p id="error-text" class="text-red-700 text-sm"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const submitButton = document.getElementById('submit-button') as HTMLButtonElement;
+  const submitText = document.getElementById('submit-text');
+  const loadingIcon = document.getElementById('loading-icon');
+  const successMessage = document.getElementById('success-message');
+  const errorMessage = document.getElementById('error-message');
+  const errorText = document.getElementById('error-text');
+
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      // Show loading state
+      submitButton.disabled = true;
+      if (submitText) submitText.textContent = 'Sending...';
+      if (loadingIcon) {
+        loadingIcon.classList.remove('hidden');
+      }
+      
+      // Hide previous messages
+      if (successMessage) successMessage.classList.add('hidden');
+      if (errorMessage) errorMessage.classList.add('hidden');
+
+      try {
+        const formData = new FormData(form);
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          body: formData,
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          // Show success message
+          if (successMessage) successMessage.classList.remove('hidden');
+          form.reset();
+          
+          // Scroll to success message
+          successMessage?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          // Show error message
+          if (errorMessage && errorText) {
+            errorText.textContent = result.message || 'An unexpected error occurred.';
+            errorMessage.classList.remove('hidden');
+            errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        }
+      } catch (error) {
+        // Show error message
+        if (errorMessage && errorText) {
+          errorText.textContent = 'Network error. Please check your connection and try again.';
+          errorMessage.classList.remove('hidden');
+          errorMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      } finally {
+        // Reset button state
+        submitButton.disabled = false;
+        if (submitText) {
+          const lang = document.documentElement.lang;
+          submitText.textContent = lang === 'fr' ? 'Envoyer le message' : 'Send Message';
+        }
+        if (loadingIcon) {
+          loadingIcon.classList.add('hidden');
+        }
+      }
+    });
+  }
+});
+</script>

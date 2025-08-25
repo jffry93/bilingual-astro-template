@@ -1,0 +1,114 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/index';
+import { getLocalizedPath } from '../i18n/utils';
+import { siteConfig } from '../config.js';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Get first 3 portfolio items for preview
+const featuredProjects = siteConfig.portfolio.slice(0, 3);
+---
+
+<section class="section bg-construction">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="section-header animate-on-scroll">
+      <h2 class="section-title">{t('portfolio.title')}</h2>
+      <p class="section-subtitle">
+        {t('portfolio.subtitle')}
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-8 mb-16">
+      {featuredProjects.map((project, index) => (
+        <div class="card group overflow-hidden animate-on-scroll" style={`animation-delay: ${index * 0.1}s`}>
+          <div class="relative aspect-[4/3] overflow-hidden">
+            <!-- Image placeholder -->
+            <div class="absolute inset-0 bg-gradient-to-br from-primary-200 to-secondary-300 flex items-center justify-center">
+              <div class="text-center text-white">
+                <div class="text-4xl mb-2">🏗️</div>
+                <div class="text-sm opacity-75">{project.title[lang]}</div>
+              </div>
+            </div>
+            
+            <!-- Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div class="absolute bottom-4 left-4 right-4 text-white">
+                <div class="flex items-center text-sm mb-2">
+                  <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                  </svg>
+                  {project.year}
+                  <span class="mx-2">•</span>
+                  <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                  </svg>
+                  {project.size}
+                </div>
+                <p class="text-sm opacity-90">{project.description[lang]}</p>
+              </div>
+            </div>
+            
+            <!-- Category Badge -->
+            <div class="absolute top-4 left-4">
+              <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-xs font-medium text-primary-700 rounded-full">
+                {project.category}
+              </span>
+            </div>
+          </div>
+          
+          <div class="p-6">
+            <h3 class="text-xl font-display font-semibold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors">
+              {project.title[lang]}
+            </h3>
+            
+            <p class="text-gray-600 text-sm mb-4 line-clamp-2">
+              {project.description[lang]}
+            </p>
+            
+            <div class="flex flex-wrap gap-2 mb-4">
+              {project.features[lang].slice(0, 2).map((feature) => (
+                <span class="px-2 py-1 bg-primary-50 text-primary-700 rounded text-xs">
+                  {feature}
+                </span>
+              ))}
+              {project.features[lang].length > 2 && (
+                <span class="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs">
+                  +{project.features[lang].length - 2} {lang === 'fr' ? 'autres' : 'more'}
+                </span>
+              )}
+            </div>
+            
+            <div class="flex items-center justify-between">
+              <div class="text-sm text-gray-500">
+                <span class="font-medium">{project.duration}</span>
+              </div>
+              
+              <a
+                href={getLocalizedPath(`/portfolio/${project.id}`, lang)}
+                class="text-primary-600 hover:text-primary-700 font-medium text-sm flex items-center group-hover:underline transition-colors"
+              >
+                {lang === 'fr' ? 'Voir le projet' : 'View project'}
+                <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center animate-on-scroll">
+      <a
+        href={getLocalizedPath('/portfolio', lang)}
+        class="btn-primary text-lg px-8 py-4"
+      >
+        {lang === 'fr' ? 'Voir tous nos projets' : 'View All Projects'}
+        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
