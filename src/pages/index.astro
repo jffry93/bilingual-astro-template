@@ -1,0 +1,22 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import ServicesPreview from '../components/ServicesPreview.astro';
+import PortfolioPreview from '../components/PortfolioPreview.astro';
+import ProcessSection from '../components/ProcessSection.astro';
+import TestimonialsSection from '../components/TestimonialsSection.astro';
+import CallToAction from '../components/CallToAction.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/index';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout>
+  <Hero />
+  <ServicesPreview />
+  <PortfolioPreview />
+  <ProcessSection />
+  <TestimonialsSection />
+  <CallToAction />
+</Layout>

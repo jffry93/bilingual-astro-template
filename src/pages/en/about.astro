@@ -1,0 +1,235 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/index';
+import { getLocalizedPath } from '../../i18n/utils';
+import { siteConfig } from '../../config.js';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout
+  title={t('about.title')}
+  description={lang === 'fr' ? 'Découvrez l\'histoire de notre entreprise familiale québécoise. Plus de 25 ans d\'expérience en construction.' : 'Discover the story of our Quebec family business. Over 25 years of construction experience.'}
+>
+  <section class="section bg-construction">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="section-header animate-on-scroll">
+        <h1 class="section-title">{t('about.title')}</h1>
+        <p class="section-subtitle">
+          {t('about.subtitle')}
+        </p>
+      </div>
+
+      <!-- Story Section -->
+      <div class="grid lg:grid-cols-2 gap-16 items-center mb-24">
+        <div class="animate-on-scroll">
+          <h2 class="text-3xl font-display font-bold text-gray-900 mb-6">
+            {siteConfig.about.story.title[lang]}
+          </h2>
+          
+          <div class="space-y-6 text-gray-600 leading-relaxed">
+            {siteConfig.about.story.content[lang].map((paragraph) => (
+              <p class="text-lg">{paragraph}</p>
+            ))}
+          </div>
+          
+          <div class="mt-8 flex items-center space-x-6">
+            <div class="text-center">
+              <div class="text-3xl font-bold text-primary-600">{siteConfig.company.founded}</div>
+              <div class="text-sm text-gray-500 font-medium">
+                {lang === 'fr' ? 'Fondée en' : 'Founded in'}
+              </div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold text-primary-600">{siteConfig.company.experience}</div>
+              <div class="text-sm text-gray-500 font-medium">
+                {lang === 'fr' ? 'Années d\'exp.' : 'Years exp.'}
+              </div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold text-primary-600">3</div>
+              <div class="text-sm text-gray-500 font-medium">
+                {lang === 'fr' ? 'Générations' : 'Generations'}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative animate-on-scroll">
+          <!-- Family photo placeholder -->
+          <div class="aspect-[4/5] bg-gradient-to-br from-primary-200 to-secondary-300 rounded-2xl shadow-2xl overflow-hidden relative">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="text-center text-white">
+                <div class="text-8xl mb-4">👨‍👩‍👧‍👦</div>
+                <p class="text-xl font-medium opacity-90">
+                  {lang === 'fr' ? 'Photo de famille' : 'Family Photo'}
+                </p>
+                <p class="text-sm opacity-75">
+                  {siteConfig.company.owner[lang]}
+                </p>
+              </div>
+            </div>
+            
+            <!-- Floating badge -->
+            <div class="absolute top-6 left-6 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-md">
+              <div class="flex items-center text-sm font-medium text-gray-700">
+                <span class="text-xl mr-2">🍁</span>
+                {lang === 'fr' ? 'Fièrement québécois' : 'Proudly Quebecois'}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Values Section -->
+      <div class="mb-24 animate-on-scroll">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-display font-bold text-gray-900 mb-4">
+            {lang === 'fr' ? 'Nos valeurs' : 'Our Values'}
+          </h2>
+          <p class="text-xl text-gray-600">
+            {lang === 'fr' 
+              ? 'Ce qui nous guide dans chaque projet'
+              : 'What guides us in every project'
+            }
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {siteConfig.about.values.map((value, index) => (
+            <div class="text-center bg-white rounded-2xl p-8 shadow-md hover:shadow-lg transition-shadow" style={`animation-delay: ${index * 0.1}s`}>
+              <div class="text-5xl mb-6">{value.icon}</div>
+              <h3 class="text-xl font-display font-semibold text-gray-900 mb-4">
+                {value.title[lang]}
+              </h3>
+              <p class="text-gray-600 leading-relaxed">
+                {value.description[lang]}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Team Section -->
+      <div class="mb-24 animate-on-scroll">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-display font-bold text-gray-900 mb-4">
+            {lang === 'fr' ? 'Notre équipe' : 'Our Team'}
+          </h2>
+          <p class="text-xl text-gray-600">
+            {lang === 'fr' 
+              ? 'Les visages derrière votre projet'
+              : 'The faces behind your project'
+            }
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          {siteConfig.about.team.map((member, index) => (
+            <div class="card text-center p-8" style={`animation-delay: ${index * 0.1}s`}>
+              <!-- Team member photo placeholder -->
+              <div class="w-32 h-32 bg-gradient-to-br from-primary-400 to-secondary-500 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-4xl font-bold">
+                {member.name.split(' ').map(n => n[0]).join('')}
+              </div>
+              
+              <h3 class="text-xl font-display font-bold text-gray-900 mb-2">
+                {member.name}
+              </h3>
+              
+              <div class="text-primary-600 font-medium mb-2">
+                {member.role[lang]}
+              </div>
+              
+              <div class="text-sm text-gray-500 mb-4">
+                {member.experience} {lang === 'fr' ? 'd\'expérience' : 'experience'}
+              </div>
+              
+              <p class="text-gray-600 text-sm leading-relaxed">
+                {member.bio[lang]}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Certifications -->
+      <div class="bg-white rounded-2xl p-8 lg:p-12 shadow-lg animate-on-scroll">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-display font-bold text-gray-900 mb-4">
+            {lang === 'fr' ? 'Certifications et garanties' : 'Certifications and warranties'}
+          </h2>
+          <p class="text-xl text-gray-600">
+            {lang === 'fr' 
+              ? 'Votre tranquillité d\'esprit est notre priorité'
+              : 'Your peace of mind is our priority'
+            }
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 mb-12">
+          {siteConfig.certifications.map((cert, index) => (
+            <div class="text-center p-6 border border-gray-100 rounded-lg">
+              <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <h3 class="font-semibold text-gray-900 mb-2">{cert.name}</h3>
+              <p class="text-sm text-gray-600">{cert.description[lang]}</p>
+              {cert.number && (
+                <p class="text-xs text-gray-400 mt-2">#{cert.number}</p>
+              )}
+            </div>
+          ))}
+        </div>
+
+        <div class="text-center">
+          <div class="inline-flex items-center bg-green-50 px-6 py-3 rounded-full">
+            <svg class="w-6 h-6 text-green-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-green-800 font-semibold">
+              {lang === 'fr' 
+                ? 'Garantie complète sur tous nos travaux'
+                : 'Full warranty on all our work'
+              }
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="mt-24 text-center animate-on-scroll">
+        <div class="bg-gradient-to-r from-primary-600 to-secondary-600 rounded-2xl p-12 text-white">
+          <h2 class="text-3xl font-display font-bold mb-4">
+            {lang === 'fr' 
+              ? 'Faites partie de notre histoire'
+              : 'Become part of our story'
+            }
+          </h2>
+          <p class="text-xl mb-8 text-white/90">
+            {lang === 'fr' 
+              ? 'Contactez notre équipe familiale pour discuter de votre projet.'
+              : 'Contact our family team to discuss your project.'
+            }
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href={getLocalizedPath('/contact', lang)}
+              class="bg-white text-primary-700 hover:bg-gray-50 font-semibold px-8 py-4 rounded-lg text-lg transition-colors"
+            >
+              {lang === 'fr' ? 'Nous rencontrer' : 'Meet us'}
+            </a>
+            <a
+              href={getLocalizedPath('/portfolio', lang)}
+              class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary-700 font-semibold px-8 py-4 rounded-lg text-lg transition-colors"
+            >
+              {lang === 'fr' ? 'Voir nos réalisations' : 'See our work'}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

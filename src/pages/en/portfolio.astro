@@ -1,0 +1,175 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/index';
+import { getLocalizedPath } from '../../i18n/utils';
+import { siteConfig } from '../../config.js';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout
+  title={t('portfolio.title')}
+  description={lang === 'fr' ? 'Découvrez nos projets de construction résidentielle et commerciale. Plus de 500 projets réalisés au Québec.' : 'Discover our residential and commercial construction projects. Over 500 completed projects in Quebec.'}
+>
+  <section class="section bg-construction">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="section-header animate-on-scroll">
+        <h1 class="section-title">{t('portfolio.title')}</h1>
+        <p class="section-subtitle">
+          {t('portfolio.subtitle')}
+        </p>
+      </div>
+
+      <!-- Portfolio Grid -->
+      <div class="grid lg:grid-cols-2 gap-8 mb-16">
+        {siteConfig.portfolio.map((project, index) => (
+          <div class="card group overflow-hidden animate-on-scroll" style={`animation-delay: ${index * 0.1}s`}>
+            <div class="relative aspect-[4/3] overflow-hidden">
+              <!-- Image placeholder -->
+              <div class="absolute inset-0 bg-gradient-to-br from-primary-200 to-secondary-300 flex items-center justify-center">
+                <div class="text-center text-white">
+                  <div class="text-6xl mb-4">🏗️</div>
+                  <div class="text-lg font-medium">{project.title[lang]}</div>
+                  <div class="text-sm opacity-75 mt-2">{project.year}</div>
+                </div>
+              </div>
+              
+              <!-- Overlay -->
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div class="absolute bottom-6 left-6 right-6 text-white">
+                  <div class="flex items-center text-sm mb-3">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                    {project.year}
+                    <span class="mx-3">•</span>
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                    </svg>
+                    {project.size}
+                    <span class="mx-3">•</span>
+                    ⏱️ {project.duration}
+                  </div>
+                  <p class="text-sm opacity-90 leading-relaxed">
+                    {project.description[lang]}
+                  </p>
+                </div>
+              </div>
+              
+              <!-- Category Badge -->
+              <div class="absolute top-4 left-4">
+                <span class="px-3 py-1 bg-white/90 backdrop-blur-sm text-xs font-medium text-primary-700 rounded-full capitalize">
+                  {project.category}
+                </span>
+              </div>
+            </div>
+            
+            <div class="p-8">
+              <h3 class="text-2xl font-display font-bold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors">
+                {project.title[lang]}
+              </h3>
+              
+              <p class="text-gray-600 mb-6 leading-relaxed">
+                {project.description[lang]}
+              </p>
+              
+              <div class="flex flex-wrap gap-2 mb-6">
+                {project.features[lang].map((feature) => (
+                  <span class="px-3 py-1 bg-primary-50 text-primary-700 rounded-full text-sm">
+                    {feature}
+                  </span>
+                ))}
+              </div>
+              
+              <div class="flex items-center justify-between">
+                <div class="text-sm text-gray-500">
+                  <div class="font-medium text-gray-700">{project.year}</div>
+                  <div>{project.size} • {project.duration}</div>
+                </div>
+                
+                <a
+                  href={getLocalizedPath(`/portfolio/${project.id}`, lang)}
+                  class="text-primary-600 hover:text-primary-700 font-medium text-sm flex items-center group-hover:underline transition-colors"
+                >
+                  {lang === 'fr' ? 'Voir les détails' : 'View details'}
+                  <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Stats Section -->
+      <div class="bg-white rounded-2xl p-8 lg:p-12 shadow-lg animate-on-scroll">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-display font-bold text-gray-900 mb-4">
+            {lang === 'fr' ? 'Nos réalisations en chiffres' : 'Our achievements in numbers'}
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-4 gap-8 text-center">
+          <div>
+            <div class="text-4xl font-bold text-primary-600 mb-2">500+</div>
+            <div class="text-gray-600 font-medium">
+              {lang === 'fr' ? 'Projets réalisés' : 'Completed Projects'}
+            </div>
+          </div>
+          <div>
+            <div class="text-4xl font-bold text-primary-600 mb-2">{siteConfig.company.experience}</div>
+            <div class="text-gray-600 font-medium">
+              {lang === 'fr' ? 'Années d\'expérience' : 'Years Experience'}
+            </div>
+          </div>
+          <div>
+            <div class="text-4xl font-bold text-primary-600 mb-2">98%</div>
+            <div class="text-gray-600 font-medium">
+              {lang === 'fr' ? 'Clients satisfaits' : 'Satisfied Clients'}
+            </div>
+          </div>
+          <div>
+            <div class="text-4xl font-bold text-primary-600 mb-2">5</div>
+            <div class="text-gray-600 font-medium">
+              {lang === 'fr' ? 'Zones de service' : 'Service Areas'}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="mt-16 text-center animate-on-scroll">
+        <div class="bg-gradient-to-r from-primary-600 to-secondary-600 rounded-2xl p-12 text-white">
+          <h2 class="text-3xl font-display font-bold mb-4">
+            {lang === 'fr' 
+              ? 'Votre projet sera le prochain?'
+              : 'Will your project be next?'
+            }
+          </h2>
+          <p class="text-xl mb-8 text-white/90">
+            {lang === 'fr' 
+              ? 'Rejoignez les centaines de familles qui nous ont fait confiance.'
+              : 'Join the hundreds of families who have trusted us.'
+            }
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href={getLocalizedPath('/contact', lang)}
+              class="bg-white text-primary-700 hover:bg-gray-50 font-semibold px-8 py-4 rounded-lg text-lg transition-colors"
+            >
+              {lang === 'fr' ? 'Commencer mon projet' : 'Start my project'}
+            </a>
+            <a
+              href={getLocalizedPath('/services', lang)}
+              class="bg-transparent border-2 border-white text-white hover:bg-white hover:text-primary-700 font-semibold px-8 py-4 rounded-lg text-lg transition-colors"
+            >
+              {lang === 'fr' ? 'Voir nos services' : 'View our services'}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
